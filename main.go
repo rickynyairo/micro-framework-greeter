@@ -8,8 +8,10 @@ import (
 	proto "github.com/rickynyairo/micro-framework-greeter/proto/greeter"
 )
 
+// Greeter implements greeter service
 type Greeter struct{}
 
+// Hello function of Greeter service
 func (g *Greeter) Hello(ctx context.Context, req *proto.Request, rsp *proto.Response) error {
 	rsp.Greeting = "Hello " + req.Name
 	return nil
