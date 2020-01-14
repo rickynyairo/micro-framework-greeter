@@ -12,14 +12,14 @@ import (
 func main() {
 	// Create a new service
 	service := micro.NewService(
-		micro.Name("greeter.client"),
+		micro.Name("go.micro.api.greeter.client"),
 		micro.Registry(etcd.NewRegistry()),
 	)
 	// Initialise the client and parse command line flags
 	service.Init()
 
 	// Create new greeter client
-	greeter := proto.NewGreeterService("greeter", service.Client())
+	greeter := proto.NewGreeterService("go.micro.api.greeter", service.Client())
 
 	// Call the greeter
 	rsp, err := greeter.Hello(context.TODO(), &proto.Request{Name: "Ricky"})

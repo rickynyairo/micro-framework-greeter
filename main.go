@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	micro "github.com/micro/go-micro"
-	proto "github.com/rickynyairo/micro-framework-greeter/proto/greeter"
 	etcd "github.com/micro/go-micro/registry/etcd"
+	proto "github.com/rickynyairo/micro-framework-greeter/proto/greeter"
 )
 
 // Greeter implements greeter service
@@ -21,7 +21,7 @@ func (g *Greeter) Hello(ctx context.Context, req *proto.Request, rsp *proto.Resp
 func main() {
 	// Create a new service. Optionally include some options here.
 	service := micro.NewService(
-		micro.Name("greeter"),
+		micro.Name("go.micro.api.greeter"),
 		micro.Registry(etcd.NewRegistry()),
 	)
 
