@@ -6,6 +6,7 @@ import (
 
 	micro "github.com/micro/go-micro"
 	proto "github.com/rickynyairo/micro-framework-greeter/proto/greeter"
+	etcd "github.com/micro/go-micro/registry/etcd"
 )
 
 // Greeter implements greeter service
@@ -21,6 +22,7 @@ func main() {
 	// Create a new service. Optionally include some options here.
 	service := micro.NewService(
 		micro.Name("greeter"),
+		micro.Registry(etcd.NewRegistry()),
 	)
 
 	// Init will parse the command line flags.
